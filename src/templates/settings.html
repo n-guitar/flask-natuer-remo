@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="menu-title">
+    SETTINGS Manu
+</div>
+<div class="menu-text">
+    {{ test }}
+</div>
+<div class="settings-manu-main">
+    <p>Nature Remo</p>
+    <table class="appliance_table">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>name</th>
+                <th>serial_number</th>
+                <th>firmware_version</th>
+            </tr>
+        </thead>
+            <tr>
+                <td>{{ appliances_get_all[0]['device']['id'] }}</td>
+                <td>{{ appliances_get_all[0]['device']['name'] }}</td>
+                <td>{{ appliances_get_all[0]['device']['serial_number'] }}</td>
+                <td>{{ appliances_get_all[0]['device']['firmware_version'] }}</td>
+            </tr>
+    </table>
+    <p>AIR</p>
+    <table class="appliance_table">
+            <thead>
+                <tr>
+                    <th>appliance_id</th>
+                    <th>type</th>
+                    <th>nickname</th>
+                    <th>model_name</th>
+                </tr>
+            </thead>
+        {% for appliance in appliances_get_all %}
+            {% if appliance['type'] == 'AC' %}
+                <tr>
+                    <td>{{ appliance['id'] }}</td>
+                    <td>{{ appliance['type'] }}</td>
+                    <td>{{ appliance['nickname'] }}</td>
+                    <td>{{ appliance['model']['name'] }}</td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+    </table>
+    <p>TV</p>
+    <table class="appliance_table">
+            <thead>
+                <tr>
+                    <th>appliance_id</th>
+                    <th>type</th>
+                    <th>nickname</th>
+                    <th>model_name</th>
+                </tr>
+            </thead>
+        {% for appliance in appliances_get_all %}
+            {% if appliance['type'] == 'TV' %}
+                <tr>
+                    <td>{{ appliance['id'] }}</td>
+                    <td>{{ appliance['type'] }}</td>
+                    <td>{{ appliance['nickname'] }}</td>
+                    <td>{{ appliance['model']['name'] }}</td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+    </table>
+    <p>OTHER</p>
+    <table class="appliance_table">
+            <thead>
+                <tr>
+                    <th>appliance_id</th>
+                    <th>type</th>
+                    <th>nickname</th>
+                </tr>
+            </thead>
+        {% for appliance in appliances_get_all %}
+            {% if appliance['type'] == 'IR' %}
+                <tr>
+                    <td>{{ appliance['id'] }}</td>
+                    <td>{{ appliance['type'] }}</td>
+                    <td>{{ appliance['nickname'] }}</td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+    </table>
+    <div class="image-upload">
+        <p>Top Image Upload </p>
+        <p>Only jpg File & Max Size 5MB</p>
+        <form action="{{ url_for('settings') }}" method=post enctype="multipart/form-data">
+              <input type=file id="img_file" name=img_file>
+              <input type=submit value=save>
+        </form>
+        {% if result %}
+            <p>{{ result }}</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

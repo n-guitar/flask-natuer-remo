@@ -1,0 +1,15 @@
+{% extends "base.html" %} {% block content %}
+<div class="menu-title">Top Manu</div>
+<div class="menu-text">
+</div>
+<div class="image-frame">
+    <ul class="top-images">
+        {% for image in image_list %}
+            <li class="image">
+                <img src="{{ url_for('static', filename=image )}}" />
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+
+{% endblock %}

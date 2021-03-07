@@ -1,0 +1,313 @@
+@import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@700&display=swap");
+
+$cBaseColor: #eaeaea;
+$cBaseColorHover: #d3f7ff;
+$cBaseTextColor: #3c5082;
+$cSelectActiveMenu: #d0cece;
+$cActiveButtonBorder: #fff;
+$cSendingCircle: #d3f7ff;
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: "M PLUS Rounded 1c", sans-serif;
+}
+
+.navigation {
+    position: fixed;
+    background: $cBaseColor;
+    width: 180px;
+    height: 100%;
+    & ul {
+        position: absolute;
+        margin-top: 40px;
+        padding: 0;
+        width: 100%;
+        & li {
+            position: relative;
+            width: 100%;
+            list-style: none;
+            &:hover {
+                background: $cBaseColorHover;
+            }
+            & a {
+                position: relative;
+                display: block;
+                width: 100%;
+                display: flex;
+                text-decoration: none;
+                color: $cBaseTextColor;
+                & .icon {
+                    position: relative;
+                    display: block;
+                    min-width: 60px;
+                    height: 60px;
+                    line-height: 60px;
+                    text-align: center;
+                    & .fas {
+                        font-size: 24px;
+                    }
+                }
+                & .title {
+                    position: relative;
+                    display: block;
+                    padding: 0 10px;
+                    height: 60px;
+                    line-height: 60px;
+                    text-align: start;
+                    white-space: nowrap;
+                }
+            }
+        }
+    }
+}
+
+.menu-title {
+    color: $cBaseTextColor;
+}
+
+.main_content {
+    margin-left: 180px;
+    padding: 42px;
+    & .menu-title {
+        text-align: center;
+    }
+}
+
+.image-frame {
+    margin-top: 60px;
+    & > ul.top-images {
+        list-style: none;
+        position: relative;
+        padding: 0;
+        & > li {
+            position: absolute;
+            overflow: hidden;
+            & > img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}
+
+.air-manu-main .select,
+.tv-manu-main .select,
+.other-manu-main .select {
+    padding: 20px;
+    & ul {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 10px;
+        & li {
+            list-style: none;
+            background: $cBaseColor;
+            padding: 8px 20px;
+            margin: 5px;
+            letter-spacing: 1px;
+            color: $cBaseTextColor;
+            cursor: pointer;
+            &.active {
+                background: $cSelectActiveMenu;
+            }
+            &:hover {
+                background: $cBaseColorHover;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.tv-product,
+.other-product {
+    display: flex;
+    flex-wrap: wrap;
+    & > .btnBox {
+        width: 0px;
+        margin: 0px;
+        padding: 0px;
+        transition: 0.3s;
+        opacity: 0;
+        &.active {
+            min-width: 180px;
+            margin: 5px;
+            padding: 5px;
+            font-size: 20px;
+            background: $cBaseColor;
+            place-items: center;
+            text-align: center;
+            border-style: solid;
+            border-color: $cActiveButtonBorder;
+            color: $cBaseTextColor;
+            opacity: 1;
+            &:hover {
+                background: $cBaseColorHover;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.air-product {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    & > .btnBox {
+        width: 0px;
+        margin: 0px;
+        padding: 0px;
+        transition: 0.3s;
+        opacity: 0;
+        &.power.active {
+            min-width: 180px;
+            margin: 5px;
+            padding: 5px;
+            font-size: 20px;
+            border-style: solid;
+            border-color: $cActiveButtonBorder;
+            color: $cBaseTextColor;
+            text-align: center;
+            opacity: 1;
+            & > .airbtn {
+                background: $cBaseColor;
+                padding: 5px;
+                border-style: solid;
+                border-color: $cActiveButtonBorder;
+            }
+        }
+        &.temperature.active {
+            min-width: 180px;
+            margin: 5px;
+            padding: 5px;
+            font-size: 20px;
+            border-style: solid;
+            border-color: $cActiveButtonBorder;
+            color: $cBaseTextColor;
+            text-align: center;
+            opacity: 1;
+            & > .airbtn {
+                background: $cBaseColor;
+                padding: 5px;
+                border-style: solid;
+                border-color: $cActiveButtonBorder;
+            }
+            & > .temp-num {
+                background: $cActiveButtonBorder;
+            }
+        }
+        &.mode.active {
+            min-width: 180px;
+            margin: 5px;
+            padding: 5px;
+            font-size: 20px;
+            border-style: solid;
+            border-color: $cActiveButtonBorder;
+            color: $cBaseTextColor;
+            text-align: center;
+            opacity: 1;
+            & > .airbtn {
+                background: $cBaseColor;
+                padding: 5px;
+                border-style: solid;
+                border-color: $cActiveButtonBorder;
+            }
+        }
+        &.vol.active {
+            min-width: 180px;
+            margin: 5px;
+            padding: 5px;
+            font-size: 20px;
+            border-style: solid;
+            border-color: $cActiveButtonBorder;
+            color: $cBaseTextColor;
+            text-align: center;
+            opacity: 1;
+            & > .airbtn {
+                background: $cBaseColor;
+                padding: 5px;
+                border-style: solid;
+                border-color: $cActiveButtonBorder;
+            }
+        }
+        &.dir.active {
+            min-width: 180px;
+            margin: 5px;
+            padding: 5px;
+            font-size: 20px;
+            border-style: solid;
+            border-color: $cActiveButtonBorder;
+            color: $cBaseTextColor;
+            text-align: center;
+            opacity: 1;
+            & > .airbtn {
+                background: $cBaseColor;
+                padding: 5px;
+                border-style: solid;
+                border-color: $cActiveButtonBorder;
+            }
+        }
+        &.active {
+            & > .airbtn:hover {
+                background: $cBaseColorHover;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.settings-manu-main {
+    color: $cBaseTextColor;
+}
+
+.appliance_table {
+    & > thead {
+        background-color: $cBaseColor;
+    }
+    & > tbody > tr {
+        text-align: center;
+        &:hover {
+            background-color: $cBaseColorHover;
+        }
+    }
+}
+
+.image-upload {
+    margin-top: 20px;
+    & > form > input {
+        font-size: 15px;
+        font-family: auto;
+    }
+}
+
+#sendingWrap {
+    position: fixed;
+    right: 3%;
+    bottom: 3%;
+    display: flex;
+    opacity: 0;
+    &.active {
+        opacity: 1;
+    }
+}
+
+/* sending anime */
+#sending {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 5px solid $cSendingCircle;
+    border-right-color: transparent;
+    animation: sendAnime 1s linear infinite;
+    opacity: 1;
+}
+@keyframes sendAnime {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

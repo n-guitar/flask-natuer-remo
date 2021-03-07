@@ -1,0 +1,8 @@
+version: '3'
+services:
+    web:
+        build: .
+        environment:
+            - REMO_TOKEN=your_token
+        ports:
+            - 5000:5000

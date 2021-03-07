@@ -1,0 +1,310 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="menu-title">
+    AIR Manu
+</div>
+<div class="menu-text">
+</div>
+<div class="air-manu-main">
+    <div class="select">
+        <ul>
+            {% for appliance in appliances_air %}
+                {# Set 0th to activate #}
+                {% if loop.index0 == 0 %}
+                    <li class="list active" select-filter="id-{{ appliance['id'] }}">{{ appliance['nickname'] }}</li>
+                {% else %}
+                    <li class="list" select-filter="id-{{ appliance['id'] }}">{{ appliance['nickname'] }}</li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="air-product">
+        {% for appliance in appliances_air %}
+            {# Set 0th to activate #}
+            {% if loop.index0 == 0 %}
+                <div class="btnBox air power id-{{ appliance['id'] }} active">
+                    power
+                    <div class="airbtn">
+                        <i class="fas fa-power-off">
+                            <dev class="signal" id="power-on" >&nbsp;on&nbsp;</dev>
+                        </i>
+                    </div>
+                    <div class="airbtn">
+                        <i class="fas fa-power-off">
+                            <dev class="signal" id="power-off" >&nbsp;off</dev>
+                        </i>
+                    </div>
+                </div>
+                <div class="btnBox air temperature id-{{ appliance['id'] }} active">
+                    temperature
+                    <div class="airbtn temp-up">
+                        <i class="fas fa-angle-up">
+                            <dev class="signal" id="temp-up" ></dev>
+                        </i>
+                    </div>
+                    <div class="airbtn temp-num">
+                        <dev class="signal" id="temp-num" >{{appliance['settings']['temp']}}</dev>
+                    </div>
+                    <div class="airbtn temp-down">
+                        <i class="fas fa-angle-down">
+                            <dev class="signal" id="temp-down" ></dev>
+                        </i>
+                    </div>
+
+                </div>
+                <div class="btnBox air mode id-{{ appliance['id'] }} active">
+                    mode
+                    <div class="airbtn">
+                        <i class="fas fa-car">
+                            <dev class="signal" id="mode-auto" >&nbsp;auto</dev>
+                        </i>
+                    </div>
+                    <div class="airbtn">
+                        <i class="fas fa-wind">
+                            <dev class="signal" id="mode-blow" >&nbsp;blow</dev>
+                        </i>
+                    </div>
+                    <div class="airbtn">
+                        <i class="fas fa-snowflake">
+                            <dev class="signal" id="mode-cool" >&nbsp;cool</dev>
+                        </i>
+                    </div>
+                    <div class="airbtn">
+                        <i class="fas fa-tint-slash">
+                            <dev class="signal" id="mode-dry" >&nbsp;dry</dev>
+                        </i>
+                    </div>
+                    <div class="airbtn">
+                        <i class="fas fa-burn">
+                            <dev class="signal" id="mode-warm" >&nbsp;warm</dev>
+                        </i>
+                    </div>
+                </div>
+                <div class="btnBox air vol id-{{ appliance['id'] }} active">
+                    air volume
+                    <div class="airbtn">
+                        <i class="fas fa-fan">
+                            <dev class="signal" id="vol-auto" >&nbsp;auto</dev>
+                        </i>
+                    </div>
+                    <div class="airbtn">
+                        <i class="fas fa-fan">
+                            <dev class="signal" id="vol-1" >&nbsp;1</dev>
+                        </i>
+                    </div>
+                    <div class="airbtn">
+                        <i class="fas fa-fan">
+                            <dev class="signal" id="vol-2" >&nbsp;2</dev>
+                        </i>
+                    </div>
+                    <div class="airbtn">
+                        <i class="fas fa-fan">
+                            <dev class="signal" id="vol-3" >&nbsp;3</dev>
+                        </i>
+                    </div>
+                    <div class="airbtn">
+                        <i class="fas fa-fan">
+                            <dev class="signal" id="vol-4" >&nbsp;4</dev>
+                        </i>
+                    </div>
+                    <div class="airbtn">
+                        <i class="fas fa-fan">
+                            <dev class="signal" id="vol-5" >&nbsp;5</dev>
+                        </i>
+                    </div>
+                    <div class="airbtn">
+                        <i class="fas fa-fan">
+                            <dev class="signal" id="vol-6" >&nbsp;6</dev>
+                        </i>
+                    </div>
+                </div>
+                <div class="btnBox air dir id-{{ appliance['id'] }} active">
+                    direction
+                    <div class="airbtn">
+                        <i class="fas fa-paper-plane">
+                            <dev class="signal" id="dir-auto" >&nbsp;auto</dev>
+                        </i>
+                    </div>
+                    <div class="airbtn">
+                        <i class="fas fa-paper-plane">
+                            <dev class="signal" id="dir-swing" >&nbsp;swing</dev>
+                        </i>
+                    </div>
+                    <div class="airbtn">
+                        <i class="fas fa-paper-plane">
+                            <dev class="signal" id="dir-1" >&nbsp;1</dev>
+                        </i>
+                    </div>
+                    <div class="airbtn">
+                        <i class="fas fa-paper-plane">
+                            <dev class="signal" id="dir-2" >&nbsp;2</dev>
+                        </i>
+                    </div>
+                    <div class="airbtn">
+                        <i class="fas fa-paper-plane">
+                            <dev class="signal" id="dir-3" >&nbsp;3</dev>
+                        </i>
+                    </div>
+                    <div class="airbtn">
+                        <i class="fas fa-paper-plane">
+                            <dev class="signal" id="dir-4" >&nbsp;4</dev>
+                        </i>
+                    </div>
+                    <div class="airbtn">
+                        <i class="fas fa-paper-plane">
+                            <dev class="signal" id="dir-5" >&nbsp;5</dev>
+                        </i>
+                    </div>
+                </div>
+                <div class="btnBox air id-{{ appliance['id'] }} active">
+                    <p><i class="fas fa-thermometer-half"></i></p>
+                    <p class="signal"></p>
+                </div>
+            {% else %}
+                <div class="btnBox air power id-{{ appliance['id'] }}">
+                    power
+                    <div class="airbtn">
+                        <i class="fas fa-power-off">
+                            <dev class="signal" id="power-on" >&nbsp;on&nbsp;</dev>
+                        </i>
+                    </div>
+                    <div class="airbtn">
+                        <i class="fas fa-power-off">
+                            <dev class="signal" id="power-off" >&nbsp;off</dev>
+                        </i>
+                    </div>
+                </div>
+                <div class="btnBox air temperature id-{{ appliance['id'] }}">
+                    temperature
+                    <div class="airbtn temp-up">
+                        <i class="fas fa-angle-up">
+                            <dev class="signal" id="temp-up" ></dev>
+                        </i>
+                    </div>
+                    <div class="airbtn temp-num">
+                        <dev class="signal" id="temp-num" >{{appliance['settings']['temp']}}</dev>
+                    </div>
+                    <div class="airbtn temp-down">
+                        <i class="fas fa-angle-down">
+                            <dev class="signal" id="temp-down" ></dev>
+                        </i>
+                    </div>
+
+                </div>
+                <div class="btnBox air mode id-{{ appliance['id'] }}">
+                    mode
+                    <div class="airbtn">
+                        <i class="fas fa-car">
+                            <dev class="signal" id="mode-auto" >&nbsp;auto</dev>
+                        </i>
+                    </div>
+                    <div class="airbtn">
+                        <i class="fas fa-wind">
+                            <dev class="signal" id="mode-blow" >&nbsp;blow</dev>
+                        </i>
+                    </div>
+                    <div class="airbtn">
+                        <i class="fas fa-snowflake">
+                            <dev class="signal" id="mode-cool" >&nbsp;cool</dev>
+                        </i>
+                    </div>
+                    <div class="airbtn">
+                        <i class="fas fa-tint-slash">
+                            <dev class="signal" id="mode-dry" >&nbsp;dry</dev>
+                        </i>
+                    </div>
+                    <div class="airbtn">
+                        <i class="fas fa-burn">
+                            <dev class="signal" id="mode-warm" >&nbsp;warm</dev>
+                        </i>
+                    </div>
+                </div>
+                <div class="btnBox air vol id-{{ appliance['id'] }}">
+                    air volume
+                    <div class="airbtn">
+                        <i class="fas fa-fan">
+                            <dev class="signal" id="vol-auto" >&nbsp;auto</dev>
+                        </i>
+                    </div>
+                    <div class="airbtn">
+                        <i class="fas fa-fan">
+                            <dev class="signal" id="vol-1" >&nbsp;1</dev>
+                        </i>
+                    </div>
+                    <div class="airbtn">
+                        <i class="fas fa-fan">
+                            <dev class="signal" id="vol-2" >&nbsp;2</dev>
+                        </i>
+                    </div>
+                    <div class="airbtn">
+                        <i class="fas fa-fan">
+                            <dev class="signal" id="vol-3" >&nbsp;3</dev>
+                        </i>
+                    </div>
+                    <div class="airbtn">
+                        <i class="fas fa-fan">
+                            <dev class="signal" id="vol-4" >&nbsp;4</dev>
+                        </i>
+                    </div>
+                    <div class="airbtn">
+                        <i class="fas fa-fan">
+                            <dev class="signal" id="vol-5" >&nbsp;5</dev>
+                        </i>
+                    </div>
+                    <div class="airbtn">
+                        <i class="fas fa-fan">
+                            <dev class="signal" id="vol-6" >&nbsp;6</dev>
+                        </i>
+                    </div>
+                </div>
+                <div class="btnBox air dir id-{{ appliance['id'] }}">
+                    direction
+                    <div class="airbtn">
+                        <i class="fas fa-paper-plane">
+                            <dev class="signal" id="dir-auto" >&nbsp;auto</dev>
+                        </i>
+                    </div>
+                    <div class="airbtn">
+                        <i class="fas fa-paper-plane">
+                            <dev class="signal" id="dir-swing" >&nbsp;swing</dev>
+                        </i>
+                    </div>
+                    <div class="airbtn">
+                        <i class="fas fa-paper-plane">
+                            <dev class="signal" id="dir-1" >&nbsp;1</dev>
+                        </i>
+                    </div>
+                    <div class="airbtn">
+                        <i class="fas fa-paper-plane">
+                            <dev class="signal" id="dir-2" >&nbsp;2</dev>
+                        </i>
+                    </div>
+                    <div class="airbtn">
+                        <i class="fas fa-paper-plane">
+                            <dev class="signal" id="dir-3" >&nbsp;3</dev>
+                        </i>
+                    </div>
+                    <div class="airbtn">
+                        <i class="fas fa-paper-plane">
+                            <dev class="signal" id="dir-4" >&nbsp;4</dev>
+                        </i>
+                    </div>
+                    <div class="airbtn">
+                        <i class="fas fa-paper-plane">
+                            <dev class="signal" id="dir-5" >&nbsp;5</dev>
+                        </i>
+                    </div>
+                </div>
+                <div class="btnBox air id-{{ appliance['id'] }}">
+                    <p><i class="fas fa-thermometer-half"></i></p>
+                    <p class="signal"></p>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+    <div id="sendingWrap">
+        <div class="sendind-text">sending signal ...&nbsp;</div>
+        <div id="sending"></div>
+    </div>
+</div>
+{% endblock %}

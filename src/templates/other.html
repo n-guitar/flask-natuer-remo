@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="menu-title">Other Manu</div>
+<div class="menu-text">
+</div>
+<div class="other-manu-main">
+    <div class="select">
+        <ul>
+            {% for appliance in appliances_other %}
+                {# Set 0th to activate #}
+                {% if loop.index0 == 0 %}
+                    <li class="list active" select-filter="id-{{ appliance['id'] }}">{{ appliance['nickname'] }}</li>
+                {% else %}
+                    <li class="list" select-filter="id-{{ appliance['id'] }}">{{ appliance['nickname'] }}</li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="other-product">
+        {% for appliance in appliances_other %}
+            {# Set 0th to activate #}
+            {% if loop.index0 == 0 %}
+                {% for signal in appliance['signals'] %}
+                    <div class="btnBox other id-{{ appliance['id'] }} active">
+                        <i class="fas fa-bolt">
+                            <dev class="signal" id="id-{{ signal['id'] }}">&nbsp;{{ signal['name'] }}</dev>
+                        </i>
+                    </div>
+                {% endfor %}
+            {% else %}
+                {% for signal in appliance['signals'] %}
+                    <div class="btnBox other id-{{ appliance['id'] }}">
+                        <i class="fas fa-bolt">
+                            <dev class="signal" id="id-{{ signal['id'] }}">&nbsp;{{ signal['name'] }}</dev>
+                        </i>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
+    </div>
+    <div id="sendingWrap">
+        <div class="sendind-text">sending signal ...&nbsp;</div>
+        <div id="sending"></div>
+    </div>
+</div>
+{% endblock %}

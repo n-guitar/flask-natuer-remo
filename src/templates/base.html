@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Flask Nature Remo</title>
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='css/style.css' )}}"
+        />
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='css/all.min.css' )}}"
+        />
+
+    </head>
+    <body>
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="{{ url_for('top') }}">
+                        <span class="title">Flask Nature Remo</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url_for('air') }}">
+                        <span class="icon"><i class="fas fa-wind"></i></span>
+                        <span class="title">AIR</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url_for('tv') }}">
+                        <span class="icon"><i class="fas fa-tv"></i></span>
+                        <span class="title">TV</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url_for('other') }}">
+                        <span class="icon"><i class="fas fa-adjust"></i></span>
+                        <span class="title">OTHER</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url_for('settings') }}">
+                        <span class="icon"><i class="fas fa-cog"></i></span>
+                        <span class="title">SETTINGS</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="main_content">{% block content %} {% endblock %}</div>
+        <div class="footer"></div>
+    </body>
+    <script type=text/javascript src="{{ url_for('static', filename='js/controller.js') }}"></script>
+</html>
