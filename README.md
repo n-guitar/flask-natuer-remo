@@ -6,13 +6,14 @@ It is written in Python, base on flask.
 
 # Demo
 
--   Save the api result as json the first time it is started.
--   This minimizes the number of connections, because it only makes api connections at send time instead of every time.
-    <img src="./demo_images/top.png" width="300px">
-    <img src="./demo_images/air.png" width="300px">
-    <img src="./demo_images/tv.png" width="300px">
-    <img src="./demo_images/other.png" width="300px">
-    <img src="./demo_images/setting.png" width="300px">
+-   Save the api result as json the first time it is started.<br>
+-   This minimizes the number of connections, because it only makes api connections at send time instead of every time.<br>
+
+<img src="./demo_images/top.png" width="300px">
+<img src="./demo_images/air.png" width="300px">
+<img src="./demo_images/tv.png" width="300px">
+<img src="./demo_images/other.png" width="300px">
+<img src="./demo_images/setting.png" width="300px">
 
 # Quick Start
 
